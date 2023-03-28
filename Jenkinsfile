@@ -1,25 +1,13 @@
 @Library("mylibrary")_
 node("built-in")
 {
-    stage('ContDownload_Master')
+    stage('ContDownload_Loans')
     {
         cicd.newgit("maven.git")
     }
-    stage('ContBuild_Master')
+    stage('ContBuild_Loans')
     {
         cicd.newMaven()
     }
-    stage('ContDeployment_Master')
-    {
-        cicd.newdeploy("ScriptedPipelinewithsharedlibraires","172.31.19.217","testapp")
-    }
-    stage('contTesting_Master')
-    {
-        cicd.newgit("FunctionalTesting")
-        cicd.runselenium("ScriptedPipelinewithsharedlibraires")
-    }
-    stage('ContDelivery_Master')
-    {
-        cicd.newdeploy("ScriptedPipelinewithsharedlibraires","172.31.28.203","prodapp")
-    }
-}
+    
+ }
